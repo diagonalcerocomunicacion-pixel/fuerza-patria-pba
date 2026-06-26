@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuerza Patria Bs As</title>
+  <meta name="description" content="Fuerza Patria Bs As" />
+  <meta property="og:title" content="Fuerza Patria Bs As" />
+  <meta property="og:description" content="Fuerza Patria Bs As" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cian:     #00AEEF;
+      --cian-dark:#0090C8;
+      --blanco:   #FFFFFF;
+      --negro:    #111111;
+      --gris-bg:  #F0FAFF;
+      --gris-txt: #333333;
+      --borde:    #C8EAF8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--blanco);
+      color: var(--gris-txt);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--cian);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .logo-txt strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--blanco);
+      display: block;
+      line-height: 1.1;
+    }
+
+    .logo-txt span {
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover { color: var(--blanco); }
+
+    .nav-contact {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-contact a {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.82rem;
+      text-decoration: none;
+    }
+
+    .nav-contact a:hover { color: white; }
+
+    /* FRANJA */
+    .franja {
+      height: 6px;
+      background: linear-gradient(90deg, var(--cian) 33%, #fff 33%, #fff 66%, var(--cian) 66%);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 520px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 64px;
+      color: white;
+      max-width: 700px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .hero-content h1 span {
+      color: var(--cian);
+    }
+
+    .hero-content p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.88);
+      max-width: 500px;
+      margin-bottom: 32px;
+      line-height: 1.75;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    }
+
+    .btn-contacto {
+      display: inline-block;
+      background: var(--cian);
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 13px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-contacto:hover { background: var(--cian-dark); }
+
+    /* SECCIONES */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cian);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--negro);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .quienes p {
+      font-size: 0.97rem;
+      color: var(--gris-txt);
+      margin-bottom: 16px;
+      line-height: 1.8;
+      max-width: 720px;
+    }
+
+    /* EJES */
+    .ejes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .eje {
+      background: var(--gris-bg);
+      border-radius: 10px;
+      padding: 28px 24px;
+      border-top: 3px solid var(--cian);
+    }
+
+    .eje h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--cian-dark);
+      margin-bottom: 10px;
+    }
+
+    .eje p {
+      font-size: 0.88rem;
+      color: var(--gris-txt);
+      line-height: 1.7;
+    }
+
+    /* REDES */
+    .redes {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .red-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cian);
+      color: white;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .red-link:hover { background: var(--cian-dark); }
+
+    /* CONTACTO */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .contact-item {
+      background: var(--gris-bg);
+      border-radius: 8px;
+      padding: 20px;
+      border-left: 3px solid var(--cian);
+    }
+
+    .contact-item .label {
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .contact-item a,
+    .contact-item p {
+      font-size: 0.9rem;
+      color: var(--cian-dark);
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      background: var(--cian);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.78rem;
+    }
+
+    footer strong { color: var(--blanco); }
+
+    .footer-nav {
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.78rem;
+    }
+
+    .footer-nav a:hover { color: white; }
+
+    /* RESPONSIVE */
+    @media (max-width: 720px) {
+      .hero { height: 420px; }
+      .hero-content { padding: 0 24px; }
+      .nav-links, .nav-contact { display: none; }
+      section { padding: 48px 0; }
+      .container { padding: 0 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Fuerza Patria" />
+      <div class="logo-txt">
+        <strong>Fuerza Patria</strong>
+        <span>Bs As</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Fuerza Patria Bs As</a></li>
+      <li><a href="#quienes">Quiénes somos</a></li>
+    </ul>
+    <div class="nav-contact">
+      <a href="tel:+542214195703">+54 221 419-5703</a>
+      <a href="mailto:fuerzapatria@fuerzapatriabsas.com">fuerzapatria@fuerzapatriabsas.com</a>
+    </div>
+  </nav>
+
+  <div class="franja"></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img class="hero-bg" src="hero.png" alt="" aria-hidden="true" />
+    <div class="hero-content">
+      <h1><span>Fuerza Patria</span><br>Provincia de Buenos Aires</h1>
+      <p>Nacemos del corazón de nuestra Provincia, con la convicción profunda de que gobernar es crear mejores oportunidades. No miramos la realidad desde un escritorio: caminamos cada barrio y cada municipio al encuentro de las y los bonaerenses.</p>
+      <a href="mailto:fuerzapatria@fuerzapatriabsas.com" class="btn-contacto">Contactanos</a>
+    </div>
+  </div>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes" class="quienes">
+    <div class="container">
+      <div class="section-label">Identidad</div>
+      <h2>¿Quiénes somos?</h2>
+      <p>Somos una coalición política y ciudadana, de raíces profundamente peronistas y populares, nacida con el firme compromiso de transformar la realidad de la Provincia de Buenos Aires. Somos la continuidad histórica de un proyecto colectivo que entiende a la política como una herramienta indispensable para garantizar la justicia social, defender la soberanía y ampliar los derechos de las y los bonaerenses.</p>
+      <p>Creemos en un modelo de provincia que ponga en el centro la producción local, la industria nacional, la educación pública, la ciencia y el empleo digno. Frente a los modelos que promueven el individualismo, nosotros elegimos construir desde la solidaridad, el arraigo y la organización comunitaria en cada uno de los 135 municipios.</p>
+    </div>
+  </section>
+
+  <!-- EJES -->
+  <section>
+    <div class="container">
+      <div class="section-label">Propuesta</div>
+      <h2>Nuestros ejes fundamentales</h2>
+      <div class="ejes-grid">
+        <div class="eje">
+          <h3>Justicia Social y Salario Digno</h3>
+          <p>Impulsamos la recuperación del poder adquisitivo y el pleno empleo, defendiendo paritarias libres y rechazando cualquier intento de flexibilización laboral.</p>
+        </div>
+        <div class="eje">
+          <h3>Defensa de lo Nuestro</h3>
+          <p>Protegemos los recursos estratégicos, los servicios públicos y la soberanía territorial y cultural de nuestra provincia.</p>
+        </div>
+        <div class="eje">
+          <h3>Políticas Públicas Activas</h3>
+          <p>Creemos en un Estado presente que garantice salud, educación de calidad, seguridad ciudadana con perspectiva democrática y un sistema previsional digno para nuestros jubilados.</p>
+        </div>
+      </div>
+      <div class="redes">
+        <a href="https://www.instagram.com/fuerzapatriabuenosaires" target="_blank" rel="noopener" class="red-link">Instagram</a>
+        <a href="https://x.com/fuerzapatriaok" target="_blank" rel="noopener" class="red-link">X / Twitter</a>
+        <a href="https://www.facebook.com/fuerzapatriaarg" target="_blank" rel="noopener" class="red-link">Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section>
+    <div class="container">
+      <div class="section-label">Contacto</div>
+      <h2>Información de la organización</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="label">Organización</div>
+          <p>Fuerza Patria Bs As</p>
+        </div>
+        <div class="contact-item">
+          <div class="label">Dirección</div>
+          <p>Calle 54 N.º 616<br>La Plata, Buenos Aires</p>
+        </div>
+        <div class="contact-item">
+          <div class="label">Teléfono</div>
+          <a href="tel:+542214195703">+54 221 419-5703</a>
+        </div>
+        <div class="contact-item">
+          <div class="label">Correo electrónico</div>
+          <a href="mailto:fuerzapatria@fuerzapatriabsas.com">fuerzapatria@fuerzapatriabsas.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>Fuerza Patria Bs As</strong></p>
+    <nav class="footer-nav">
+      <a href="#">Fuerza Patria Bs As</a>
+      <a href="#quienes">Quiénes somos</a>
+    </nav>
+    <p>Calle 54 N.º 616, La Plata, Buenos Aires · <a href="tel:+542214195703" style="color:rgba(255,255,255,0.75)">+54 221 419-5703</a> · <a href="mailto:fuerzapatria@fuerzapatriabsas.com" style="color:rgba(255,255,255,0.75)">fuerzapatria@fuerzapatriabsas.com</a></p>
+    <p style="margin-top:10px;">© 2026 · Contenido político. Pagado por Fuerza Patria Bs As.</p>
+  </footer>
+
+</body>
+</html>
